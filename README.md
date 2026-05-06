@@ -11,3 +11,4 @@ but is a means to learn through the use of multiple choice questions. The softwa
 ###Otherwise it adds to the database incrementally and stores everything in indexedDB. The API or backend utilizes MariaDB and the opensource software to get that all working is found in the package.JSON files associated with the server.
 ###The questionnaire can be filled and altered but pretty much everything else needs to be created or needs work. The CSS is terrible looking but then I'm a full stack developer with not much time on my hands. The whole thing is still in need of refactoring.
 ###This software resides under the MIT Licence. 
+###The database can be found in the dump file.
