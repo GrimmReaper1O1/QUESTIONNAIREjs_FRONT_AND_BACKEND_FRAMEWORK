@@ -1,0 +1,90 @@
+import express from 'express';
+import fs from 'fs';
+import path from 'path';
+import http from 'http';
+
+const app = express();
+const router = express.Router();
+
+// Middleware to parse JSON
+app.use(express.json());
+
+// Serve index.html
+router.route('/').get((req, res) => {
+  res.sendFile('index.html', { root: path.join(process.cwd(), 'server') });
+});
+
+// Save JSON to file
+router.route('/save').post((req, res) => {
+  const { name, string } = req.body;
+
+  if (!name || !string) {
+    return res.status(400).json({ error: 'Missing name or string' });
+  }
+
+  const filePath = path.join(process.cwd(), 'jsonFiles', `${name}.json`);
+
+  fs.writeFile(filePath, string, 'utf8', err => {
+    if (err) {
+      console.error('File write failed:', err);
+      return res.status(500).json({ error: 'Failed to save file' });
+    }
+    console.log(`File written: ${filePath}`);
+    res.json({ success: true });
+  });
+});
+
+// Load JSON from file
+router.route('/load').post((req, res) => {
+  const { name } = req.body;
+
+  if (!name) {
+    return res.status(400).json({ error: 'Missing name' });
+  }
+
+  const filePath = path.join(process.cwd(), 'jsonFiles', `${name}.json`);
+
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error('File read failed:', err);
+      return res.status(500).json({ error: 'Failed to load file' });
+    }
+
+    console.log(`File read: ${filePath}`);
+    res.json({ data });
+  });
+});
+
+app.use('/', router);
+
+const port = 3000;
+const hostname = 'localhost';
+
+app.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}`);
+});
+✅ 5. Example working fetch calls from the client side
+js
+Copy code
+// Save data
+fetch('/save', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    name: 'example',
+    string: JSON.stringify({ hello: 'world' })
+  })
+})
+  .then(res => res.json())
+  .then(console.log)
+  .catch(console.error);
+
+// Load data
+fetch('/load', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ name: 'example' })
+})
+  .then(res => res.json())
+  .then(console.log)
+  .catch(console.error);

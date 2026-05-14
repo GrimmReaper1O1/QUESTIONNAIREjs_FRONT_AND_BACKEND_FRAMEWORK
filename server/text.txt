@@ -1,0 +1,41 @@
+set cookie 
+ const token = jwt.sign({ id: user.id }, process.env.SECRET_KEY, { expiresIn: '1h' });
+                      console.log(token);
+                 res.cookie('token', token, {
+                    httpOnly: true,
+                    secure: true,
+                    sameSite: 'lax', // do strict in production
+                    maxAge: 60 * 60 * 1000
+                  });
+
+
+from routs file  
+  router.route('/signin').post(authCtrl.signin);
+router.route('/signup').post(authCtrl.signup);
+router.route('/api/auth/signout').post(authCtrl.signout);
+  
+  authMiddleware is below
+  
+  let auth = (req, res, next) => {
+                const authHeader = req.headers['authorization'];
+                const token = req.cookies.token;
+                console.log(token);
+                console.log(req);
+                console.log('auth', token);
+                if (!token) return res.status(403).json({ error: 'Token missing' });
+                
+                jwt.verify(token, process.env.SECRET_KEY, (err, user) => {
+                if (err) return res.status(401).json({ error: 'Invalid token' });
+                req.user = user;
+                next();
+                });
+              };
+
+run server is below
+ app.use(cors({
+            origin: 'http://localhost', // change to 80 http or 8080 for https for production.
+            credentials: true,
+          }));
+ app.use(cookieParser())
+               app.use('/api/', authMiddleware);
+          app.use('/', loginRoutes);

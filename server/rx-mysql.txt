@@ -1,0 +1,10 @@
+ResultSetHeader {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 7,
+  info: '',
+  serverStatus: 2,
+  warningStatus: 0,
+  changedRows: 0
+}
+result.affectedRows
