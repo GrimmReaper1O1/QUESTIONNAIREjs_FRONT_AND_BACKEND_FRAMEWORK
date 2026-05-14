@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../CSS/stylesheet.css"/>
+    </head>
+    <body>
+        <header class="vh10">
+            <div id="menu" class="menu-size height-auto fixed-right"></div>
+        </header>
+            <div class="vh90 overflowScroll">
+                <h1 id="needToFill" class="hidden">YOU WILL NEED TO FILL THE THE OTHER QUESTION IDS ENTERED IN THE VIEWING AREA!</h1>
+                <h1>INPUT QUESTION INFORMATION</h1>
+                <form style="padding: 4rem;">
+                    <label for="numberOfQuestions">Choose number of questions:<br>
+                    <select class="formGroup" id="numberOfQuestions" onChange="changeNumberOfQuestions(event)">
+                        <option value="1">2</option>
+                        <option value="2">3</option>
+                        <option value="3">4</option>
+                        <option value="4">5</option>
+                        <option value="5">6</option>
+                    </select>
+                    </label><br>
+                    <label for="numberOfHints">Choose number of hints:<br>
+                    <select class="formGroup"  id="numberOfHints" onChange="changeNumberOfHints(event)">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                    </label>
+                    <label for="quesitonInformation">Question:<br>
+                    <textarea class="formGroup"  cols="50" rows="8" id="questionInformation"></textarea></label><br><br>
+                       <!-- javascript generated -->
+                    <div id="insertHints"></div>
+               <!-- javascript generated -->
+                    <div id="insertQuestions"></div>
+                    
+                    <label for="correctChoice">Number for correct answer:<br>
+                    <input class="formGroup" type="number" id="correctChoice"/></label>
+                    <br>
+                    <button id="submitInformation" onclick="collectInfo(event)">Submit Information!</button>
+                </form>
+            </div>
+                <script src="/main/scripts/alterQuestionInformation.js"></script>
+            <SCRIPT SRC="../SCRIPT/jquery-3.7.1.min.js"></SCRIPT>
+			<SCRIPT SRC="./scripts/menuInner.js"></SCRIPT>
+            </body>
+            </html>

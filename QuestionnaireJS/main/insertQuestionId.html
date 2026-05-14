@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../CSS/stylesheet.css"/>
+    </head>
+    <body>
+        <header class="vh10">
+            <div id="menu" class="menu-size height-auto fixed-right"></div>
+        </header>
+        <div class="vh90">
+            <form>
+                <label  for="position">Position:<input class="formGroup" type="number" step="any" min="0" id="position"/></label><br>
+                <label for="name">Question Name:<input class="formGroup"   type="text" id="name"/></label><br>
+                <label for="description">Question Description:<input class="formGroup"  type="text" id="description"/></label><br>
+                <button id="continue" onclick="collectInfoAndChangePage(event)">INSERT THE QUESTION INFORMATION!</button><br>
+                <button id="submit" onclick="collectInfo(event)">INSERT ANOTHER QUESTION ID!</button>
+           </form>
+        </div>
+        <SCRIPT src="/main/scripts/insertQuestionId.js"></SCRIPT>
+        <SCRIPT SRC="../SCRIPT/jquery-3.7.1.min.js"></SCRIPT>
+		<SCRIPT SRC="./scripts/menuInner.js"></SCRIPT>
+    </body>
+</html>

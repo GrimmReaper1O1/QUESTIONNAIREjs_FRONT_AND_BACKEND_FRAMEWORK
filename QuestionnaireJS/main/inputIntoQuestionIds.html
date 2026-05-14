@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../CSS/stylesheet.css"/>
+    </head>
+    <body>
+         <header class="vh10">
+            <div id="menu" class="menu-size height-auto fixed-right"></div>
+        </header>
+      <div class="vh80 overflowScroll">
+        <h1>The questionnaire must be in the following JSON structure.</h1>
+       <div>
+        <textarea>{ "1": {
+          "questionInfo": "Which word is the noun in the sentence: 'The cat slept on the sofa.'",
+          "choice0": "slept",
+          "choice1": "cat",
+          "choice2": "on",
+          "choice3": "the",
+          "choice4": null,
+          "choice5": null,
+          "hint0": "A noun names a person, place, thing, or idea.",
+          "hint1": "Look for the thing performing the action.",
+          "hint2": "Animals are nouns.",
+          "reply0": "'Slept' is a verb because it describes the action.",
+          "reply1": "Correct. 'Cat' is a noun because it names an animal.",
+          "reply2": "'On' is a preposition showing location.",
+          "reply3": "'The' is an article used before nouns.",
+          "reply4": null,
+          "reply5": null,
+          "correct_choice": 1
+        },
+        "2": {
+          "questionInfo": "Which sentence contains a proper noun?",
+          "choice0": "The city was crowded.",
+          "choice1": "Sarah visited London.",
+          "choice2": "The dog barked loudly.",
+          "choice3": "A tree fell yesterday.",
+          "choice4": null,
+          "choice5": null,
+          "hint0": "Proper nouns name specific people or places.",
+          "hint1": "Proper nouns begin with capital letters.",
+          "hint2": "Look for a specific name.",
+          "reply0": "'City' is a common noun, not a proper noun.",
+          "reply1": "Correct. 'Sarah' and 'London' are proper nouns because they name specific people and places.",
+          "reply2": "This sentence contains only common nouns.",
+          "reply3": "This sentence does not contain a proper noun.",
+          "reply4": null,
+          "reply5": null,
+          "correct_choice": 1
+        }
+      }
+    
+</textarea>
+</div>
+        <div>
+            <h1>Paste JSON here!</h1>
+            <textarea id="jsonText"></textarea><br>
+            <button class="inputButton" onClick="enterInfo(event)">INPUT SUBJECT JSON</button>
+        </div>
+    </div>
+            <script src="/SCRIPT/jquery-3.7.1.min.js"></script>
+            <script src="/main/scripts/menuInner.js"></script>
+            <script src="/main/scripts/inputIntoQuestionIds.js"></script>
+        </body>
+</html>

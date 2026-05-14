@@ -1,0 +1,328 @@
+<!DOCTYPE HTML>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../CSS/stylesheet.css"/>
+    </head>
+    <body>
+         <header class="vh10">
+            <div id="menu" class="menu-size height-auto fixed-right"></div>
+        </header>
+      <div class="vh80 overflowScroll">
+          <div>
+           <h1>The questionnaire must be in the following JSON structure.</h1>
+        <h4>Please look to the bottom of the page for an example prompt.</h4>
+           <textarea>{
+  "numberOfQuestions": 45,
+  "numberOfRemoval": 1,
+  "name": "beginner grammar",
+  "introduction": "This grammar course progressively teaches English grammar from beginner to advanced level using multiple choice questions, explanations, hints, corrections, and practical examples.",
+  "links": {
+    "0": {
+      "name": "Grammar Monster",
+      "url": "https://www.grammar-monster.com/"
+    },
+    "1": {
+      "name": "Purdue OWL Grammar Guide",
+      "url": "https://owl.purdue.edu/owl/general_writing/grammar/index.html"
+    },
+    "2": {
+      "name": "BBC Learning English",
+      "url": "https://www.bbc.co.uk/learningenglish/english/"
+    },
+    "3": {
+      "name": "Khan Academy Grammar",
+      "url": "https://www.khanacademy.org/humanities/grammar"
+    }
+  },
+  "questionIds": {
+    "1": {
+      "name": "Nouns",
+      "info": "Learn how nouns identify people, places, things, and ideas.",
+      "position": "1",
+      "questionInformation": {
+        "1": {
+          "questionInfo": "Which word is the noun in the sentence: 'The cat slept on the sofa.'",
+          "choice0": "slept",
+          "choice1": "cat",
+          "choice2": "on",
+          "choice3": "the",
+          "choice4": null,
+          "choice5": null,
+          "hint0": "A noun names a person, place, thing, or idea.",
+          "hint1": "Look for the thing performing the action.",
+          "hint2": "Animals are nouns.",
+          "reply0": "'Slept' is a verb because it describes the action.",
+          "reply1": "Correct. 'Cat' is a noun because it names an animal.",
+          "reply2": "'On' is a preposition showing location.",
+          "reply3": "'The' is an article used before nouns.",
+          "reply4": null,
+          "reply5": null,
+          "correct_choice": 1
+        },
+        "2": {
+          "questionInfo": "Which sentence contains a proper noun?",
+          "choice0": "The city was crowded.",
+          "choice1": "Sarah visited London.",
+          "choice2": "The dog barked loudly.",
+          "choice3": "A tree fell yesterday.",
+          "choice4": null,
+          "choice5": null,
+          "hint0": "Proper nouns name specific people or places.",
+          "hint1": "Proper nouns begin with capital letters.",
+          "hint2": "Look for a specific name.",
+          "reply0": "'City' is a common noun, not a proper noun.",
+          "reply1": "Correct. 'Sarah' and 'London' are proper nouns because they name specific people and places.",
+          "reply2": "This sentence contains only common nouns.",
+          "reply3": "This sentence does not contain a proper noun.",
+          "reply4": null,
+          "reply5": null,
+          "correct_choice": 1
+        }
+      }
+    },
+    "2": {
+      "name": "Pronouns",
+      "info": "Learn how pronouns replace nouns in sentences.",
+      "position": "2",
+      "questionInformation": {
+        "1": {
+          "questionInfo": "Which word is a pronoun?",
+          "choice0": "quickly",
+          "choice1": "he",
+          "choice2": "table",
+          "choice3": "green",
+          "choice4": null,
+          "choice5": null,
+          "hint0": "Pronouns replace nouns.",
+          "hint1": "Words like he, she, it, and they are pronouns.",
+          "hint2": "Look for a word that can replace a person's name.",
+          "reply0": "'Quickly' is an adverb.",
+          "reply1": "Correct. 'He' is a pronoun because it replaces a noun.",
+          "reply2": "'Table' is a noun.",
+          "reply3": "'Green' is an adjective.",
+          "reply4": null,
+          "reply5": null,
+          "correct_choice": 1
+        }
+      }
+    }
+
+}
+}
+</textarea>
+</div>
+        <div>
+            <h1>Paste JSON here!</h1>
+            <textarea id="jsonText"></textarea><br>
+            <button class="inputButton" onClick="enterInfo(event)">INPUT SUBJECT JSON</button>
+        </div>
+        <div><h4>Example Prompt</h4>
+        <textarea>I want to get a variety of multiple choice questions on the subject of grammar as well as the information to teach basic grammar. I want multiple multiple choice questions based on the same information with between two to six choices with individual replies to each choice that explains why the answers were correct or not correct and I want to the correct answer in the correct choice key which I will provide a json structure to follow with. I also want links to provide extra information for the course to look at if desired. These links will also be in json. 
+Each group of multiple choice questions will be numbered in an object and follow this structure. 
+
+
+You are a professional educational curriculum and assessment generator.
+
+Your task is to create a complete grammar learning course in JSON format.
+
+The course must progressively teach grammar from beginner to advanced level.
+
+The output MUST strictly follow this JSON structure:
+
+{ numberOfQuestions: 1, numberOfRemoval: 1, introduction: null, links:{},
+questionIds: {
+‘1’: {
+name: null, info: null, position: ‘1’,
+questionInformation: {
+‘1’:{
+question_information: null, choice0: null, choice1: null, choice2: null, choice3: null, choice4: null, choice5: null, hint0: null, hint1: null, hint2: null, reply0: null, reply1: null, reply2: null, reply3: null, reply4: null, reply5: null, correct_choice: 1, 
+},
+‘2’: {
+question_information: null, choice0: null, choice1: null, choice2: null, choice3: null, choice4: null, choice5: null, hint0: null, hint1: null, hint2: null, reply0: null, reply1: null, reply2: null, reply3: null, reply4: null, reply5: null, correct_choice: 1, 
+
+}
+}
+}
+}
+}
+
+
+Requirements:
+
+1. Each entry inside questionIds represents a grammar lesson/module.
+
+2. Each module must contain:
+- name
+- info
+- position
+- questionInformation
+
+3. Every lesson must teach a single grammar concept thoroughly before moving to the next concept.
+
+4. Include multiple questions per lesson.
+
+5. Each question must:
+- teach the concept
+- reinforce understanding
+- contain realistic examples
+- use between 2 and 6 answer choices
+- include hints
+- include detailed replies for EVERY choice
+- explain WHY answers are correct or incorrect
+- include the correct answer index in correct_choice
+
+6. Questions must become progressively harder.
+
+7. Include beginner, intermediate, and advanced grammar topics.
+
+8. Every lesson should contain:
+- concept explanation
+- practical examples
+- correction examples
+- common mistakes
+- sentence analysis
+
+9. Include external educational links in the links object for further learning.
+
+10. Use null for unused choices/replies/hints.
+
+11. Avoid duplicate questions.
+
+12. Use proper JSON formatting only.
+
+13. Make the course educational enough for self-learning without a teacher.
+
+14. Include at least these grammar categories:
+
+BEGINNER:
+- nouns
+- pronouns
+- verbs
+- adjectives
+- adverbs
+- articles
+- prepositions
+- conjunctions
+- interjections
+- sentence structure
+- capitalization
+- punctuation
+
+INTERMEDIATE:
+- subject verb agreement
+- verb tense consistency
+- clauses
+- phrases
+- direct and indirect objects
+- compound sentences
+- complex sentences
+- commas
+- quotation marks
+- apostrophes
+- comparative and superlative forms
+- active and passive voice
+
+ADVANCED:
+- conditional sentences
+- subjunctive mood
+- parallel structure
+- dangling modifiers
+- misplaced modifiers
+- advanced punctuation
+- semicolons
+- colons
+- rhetorical structure
+- syntax variation
+- ambiguity
+- formal vs informal grammar
+- stylistics
+- grammatical analysis
+
+15. Include remedial and trick questions to test understanding.
+
+16. Include real-world examples from:
+- conversation
+- business writing
+- academic writing
+- storytelling
+- emails
+- reports
+
+17. Provide at least 10-20 questions per module.
+
+18. Generate enough modules to comprehensively teach English grammar.
+
+19. Use concise but educational reply explanations.
+
+20. Ensure the JSON is valid and machine-readable.
+
+Example module names:
+- Parts of Speech
+- Basic Sentences
+- Verb Tenses
+- Punctuation Rules
+- Clauses and Phrases
+- Advanced Sentence Structure
+- Formal Writing Grammar
+- Grammar Error Detection
+- Grammar in Academic Writing
+
+Return ONLY valid JSON.
+Please include these questionIds
+{
+"1": "Nouns",
+"2": "Pronouns",
+"3": "Verbs",
+"4": "Verb Tenses",
+"5": "Helping Verbs",
+"6": "Adjectives",
+"7": "Adverbs",
+"8": "Articles",
+"9": "Prepositions",
+"10": "Conjunctions",
+"11": "Interjections",
+"12": "Subject and Predicate",
+"13": "Sentence Structure",
+"14": "Fragments and Run-ons",
+"15": "Capitalization",
+"16": "Periods and Question Marks",
+"17": "Commas",
+"18": "Quotation Marks",
+"19": "Apostrophes",
+"20": "Semicolons and Colons",
+"21": "Subject Verb Agreement",
+"22": "Singular and Plural Rules",
+"23": "Direct and Indirect Objects",
+"24": "Clauses",
+"25": "Phrases",
+"26": "Independent and Dependent Clauses",
+"27": "Compound Sentences",
+"28": "Complex Sentences",
+"29": "Compound-Complex Sentences",
+"30": "Active and Passive Voice",
+"31": "Comparatives and Superlatives",
+"32": "Modal Verbs",
+"33": "Conditional Sentences",
+"34": "Parallel Structure",
+"35": "Modifiers",
+"36": "Dangling Modifiers",
+"37": "Misplaced Modifiers",
+"38": "Formal vs Informal Grammar",
+"39": "Grammar in Conversation",
+"40": "Grammar in Academic Writing",
+"41": "Grammar in Business Writing",
+"42": "Syntax and Style",
+"43": "Common Grammar Mistakes",
+"44": "Grammar Error Correction",
+"45": "Advanced Grammar Analysis"
+}
+difficulty: "beginner"
+
+
+Please provide this for me.
+</textarea></div>
+    </div>
+            <script src="/SCRIPT/jquery-3.7.1.min.js"></script>
+            <script src="/main/scripts/menuInner.js"></script>
+            <script src="/main/scripts/inputSubject.js"></script>
+        </body>
+</html>

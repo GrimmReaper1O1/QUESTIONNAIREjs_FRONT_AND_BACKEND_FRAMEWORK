@@ -1,0 +1,100 @@
+{
+  "numberOfQuestions": 45,
+  "numberOfRemoval": 1,
+  "name": "beginner grammar",
+  "introduction": "This grammar course progressively teaches English grammar from beginner to advanced level using multiple choice questions, explanations, hints, corrections, and practical examples.",
+  "links": {
+    "0": {
+      "name": "Grammar Monster",
+      "url": "https://www.grammar-monster.com/"
+    },
+    "1": {
+      "name": "Purdue OWL Grammar Guide",
+      "url": "https://owl.purdue.edu/owl/general_writing/grammar/index.html"
+    },
+    "2": {
+      "name": "BBC Learning English",
+      "url": "https://www.bbc.co.uk/learningenglish/english/"
+    },
+    "3": {
+      "name": "Khan Academy Grammar",
+      "url": "https://www.khanacademy.org/humanities/grammar"
+    }
+  },
+  "questionIds": {
+    "1": {
+      "name": "Nouns",
+      "info": "Learn how nouns identify people, places, things, and ideas.",
+      "position": "1",
+      "questionInformation": {
+        "1": {
+          "questionInfo": "Which word is the noun in the sentence: 'The cat slept on the sofa.'",
+          "choice0": "slept",
+          "choice1": "cat",
+          "choice2": "on",
+          "choice3": "the",
+          "choice4": null,
+          "choice5": null,
+          "hint0": "A noun names a person, place, thing, or idea.",
+          "hint1": "Look for the thing performing the action.",
+          "hint2": "Animals are nouns.",
+          "reply0": "'Slept' is a verb because it describes the action.",
+          "reply1": "Correct. 'Cat' is a noun because it names an animal.",
+          "reply2": "'On' is a preposition showing location.",
+          "reply3": "'The' is an article used before nouns.",
+          "reply4": null,
+          "reply5": null,
+          "correct_choice": 1
+        },
+        "2": {
+          "questionInfo": "Which sentence contains a proper noun?",
+          "choice0": "The city was crowded.",
+          "choice1": "Sarah visited London.",
+          "choice2": "The dog barked loudly.",
+          "choice3": "A tree fell yesterday.",
+          "choice4": null,
+          "choice5": null,
+          "hint0": "Proper nouns name specific people or places.",
+          "hint1": "Proper nouns begin with capital letters.",
+          "hint2": "Look for a specific name.",
+          "reply0": "'City' is a common noun, not a proper noun.",
+          "reply1": "Correct. 'Sarah' and 'London' are proper nouns because they name specific people and places.",
+          "reply2": "This sentence contains only common nouns.",
+          "reply3": "This sentence does not contain a proper noun.",
+          "reply4": null,
+          "reply5": null,
+          "correct_choice": 1
+        }
+      }
+    },
+    "2": {
+      "name": "Pronouns",
+      "info": "Learn how pronouns replace nouns in sentences.",
+      "position": "2",
+      "questionInformation": {
+        "1": {
+          "questionInfo": "Which word is a pronoun?",
+          "choice0": "quickly",
+          "choice1": "he",
+          "choice2": "table",
+          "choice3": "green",
+          "choice4": null,
+          "choice5": null,
+          "hint0": "Pronouns replace nouns.",
+          "hint1": "Words like he, she, it, and they are pronouns.",
+          "hint2": "Look for a word that can replace a person's name.",
+          "reply0": "'Quickly' is an adverb.",
+          "reply1": "Correct. 'He' is a pronoun because it replaces a noun.",
+          "reply2": "'Table' is a noun.",
+          "reply3": "'Green' is an adjective.",
+          "reply4": null,
+          "reply5": null,
+          "correct_choice": 1
+        }
+      }
+    }
+
+}
+}
+
+

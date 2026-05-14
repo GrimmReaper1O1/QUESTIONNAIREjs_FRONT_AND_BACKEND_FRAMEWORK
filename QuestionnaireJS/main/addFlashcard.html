@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../CSS/stylesheet.css"/>
+    </head>
+    <body>
+         <header class="vh10">
+            <div id="menu" class="menu-size height-auto fixed-right"></div>
+        </header>
+      <div class="vh80 overflowScroll">
+            <div>
+                <h2>Each flashcard revolves randomly dependent on individual categories until categories deplete and then all other cards depelete unless an individual category is chosen. There is a separate page for the purpose of testing via written answers.</h2>
+                <h4>Enter number of flashcards to show.</h4>
+                <select class="formGroup" id="numberOfFlashcards" onChange="changeNumberOfFlashcards(event)">
+                        <option value="0">1</option>
+                        <option value="1">2</option>
+                        <option value="2">3</option>
+                        <option value="3">4</option>
+                        <option value="4">5</option>
+                        <option value="5">6</option>
+                </select><br><br>
+            </div>
+            <div id="flashcardEntry">
+                <h4>Select category of flashcard.</h4>
+                <select class="categoryGroup" id="categories" onChange="selCategory(event)">
+                    <option value="other">Other</option>
+                </select><br><br>
+                <div id="catInputDiv">
+                    
+                </div>
+                
+                <h4>QUESTION</h4>
+                <textarea class="questionGroup">
+                </textarea><br>
+                <h4>ANSWER</h4>
+                <textarea class="answerGroup"></textarea><br>
+            </div>
+            <div id="repeatingFlashcardInputs">
+                <br>
+            </div>
+            <button class="inputButton" onClick="enterInfo(event)">INPUT SUBJECT JSON</button>
+            <div id="flashcards">
+
+            </div>
+            <script src="/SCRIPT/jquery-3.7.1.min.js"></script>
+            <script src="/main/scripts/menuInner.js"></script>
+            <script type="module" src="/main/scripts/addFlashcardModule.js"></script>
+            <script src="/main/scripts/addFlashcard.js"></script>
+        </body>
+</html>

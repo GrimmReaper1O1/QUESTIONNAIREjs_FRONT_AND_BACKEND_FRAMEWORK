@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../CSS/stylesheet.css"/>
+    </head>
+    <body>
+        <header class="vh10">
+            <div id="menu" class="menu-size height-auto fixed-right"></div>
+        </header>
+      
+<div>
+    <button onclick="back(event)">BACK TO SUBJECT</button><br><br>
+    <form action="/main/insertAppendix.html" method="POST" enctype="multipart/form-data">
+    <input type="file" id="file" class="custom-file-label"/><br><br>
+    <label for="position">Position decimal number:</label><br>
+    <input type="number" step="any" min="0" id="position" /><br>
+    <textarea id="info" cols="40" rows="2" >Please enter a breif description if needed.</textarea><br>
+    <label for="file-progress">File Upload Progress:</label><br><br>
+    <progress id="file-progress" value="0" max="100">0%</progress><br><br>
+    <button type='submit' id="uploadBtn" >SUBMIT FILE!</button>
+    </form>
+</div>
+<script src="scripts/functions.js"></script>
+<script src="scripts/insertAudio.js"></script>
+
+            </body>
+            </html>

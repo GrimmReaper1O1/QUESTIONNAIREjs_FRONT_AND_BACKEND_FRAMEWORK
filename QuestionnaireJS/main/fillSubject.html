@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../CSS/stylesheet.css"/>
+    </head>
+    <body>
+        <header class="vh10">
+            <div id="menu" class="menu-size height-auto fixed-right"></div>
+        </header>
+      
+		<div class="vh90 overflowScroll">
+			<div><button onclick="insertAppendix(event)">INSERT APPENDIX</button>&nbsp;<button onclick="insertAudio(event)">INSERT AUDIO</button>&nbsp;<button onclick="insertVideo(event)">INSERT VIDEO</button></div>
+			<div class="height-auto">
+		<form style="padding: 5rem;">
+			<label for="subjectInformation">PLEASE ENTER THE SUBJECT NAME.<br>
+			<input class="formGroup" type="text" id="subject_information" size="100"></label><br>
+			<label for="introduction">Subject Description<br>	
+			<textarea  class="formGroup" rows='40' cols='80' id='introduction'></textarea></label><br>
+			<label for="numberOfQuestions">PLEASE ENTER THE NUMBER OF QUESTIONS<BR>
+			DISPLAYED ON EACH PAGE OF THE QUESTIONAIR.<br>
+			DO NOT ENTER LESS THAN TWO OR<br>
+			MORE THAN SIX.<br>
+			
+			<input class="formGroup" type="number" id="numberOfQuestions" size="1"></label><br>
+			<label for="removeQuestion">PLEASE ENTER THE NUMBER WHICH DICTATES<BR>
+			THE REMOVAL OF QUESTIONS UPON COMPLETION.<br>
+			
+			<input class="formGroup" type="number" id="numberOfRemoval" size="2"></label>	
+			<!-- enter automatically generated links here x10 -->
+            <!-- enter the description of the links to show info on webpages x10 as well -->
+			
+            <button id="submitSubjectIntro" onClick="collectInfo(event)">SUBMIT!</button>
+			</form>
+
+            <SCRIPT SRC="./scripts/fillSubject.js"></SCRIPT>
+			<SCRIPT SRC="../SCRIPT/jquery-3.7.1.min.js"></SCRIPT>
+			<SCRIPT SRC="./scripts/menuInner.js"></SCRIPT>
+		</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../CSS/stylesheet.css"/>
+    </head>
+    <body>
+        <header class="vh10">
+            <div id="menu" class="menu-size height-auto fixed-right"></div>
+        </header>
+        <div class="vh90">
+            <form>
+                <label  for="position">Position:<input class="formGroup" type="number" step="any" min="0" id="position"/></label><br>
+                <label for="position">Question Name:<input class="formGroup"   type="text" id="name"/></label><br>
+                <label for="info">Question Description:<textArea class="formGroup"  cols="20" rows="4" id="info"></textArea></label><br>
+               <button id="submit" onclick="collectInfo(event)">UPDATE QUESTION ID!</button>
+            </form>
+        </div>
+        <SCRIPT src="/main/scripts/alterQuestionIds.js"></SCRIPT>
+        <SCRIPT SRC="../SCRIPT/jquery-3.7.1.min.js"></SCRIPT>
+		<SCRIPT SRC="./scripts/menuInner.js"></SCRIPT>
+    </body>
+</html>
