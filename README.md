@@ -12,3 +12,4 @@ but is a means to learn through the use of multiple choice questions. The softwa
 ### The questionnaire can be filled and altered but pretty much everything else needs to be created or needs work. The CSS is terrible looking but then I'm a full stack developer with not much time on my hands. The whole thing is still in need of refactoring.
 ### This software resides under the MIT Licence. 
 ### The database can be found in the dump file.
+### Ammendment: You can now enter an entire course created by chatGPT given you utilize the JSON framework provided and utilize an adequate prompt. You can also get ChatGPT to enter question sets dependent on prompts but you have to paste the JSON in both cases.
