@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="./CSS/stylesheet.css" />
+</head>
+
+<body>
+    <header class="">
+        <div id="menu" class="menu-size height-auto fixed-right"></div>
+    </header>
+
+    <div class="flex flex-direction-row align-centered vh100">
+        <div class="min-width-100 min-width-80">
+            <div class="width-100 padding">
+                <button class="genreButton" onclick="createMod(event)">CREATE MODS</button>
+                <button class="genreButton" onclick="removeMods(event)">REMOVE MODS</button>
+            </div>
+            <div id="startMenu" class="overflowScroll vh70">
+                <br>
+            </div>
+            <div id="paginationControls"></div>
+        </div>
+        <div class="vh100">
+            <br>
+            <br>
+            <br>
+            <br>
+            <button class="width-100 align-left genreButton" onclick="selectGenre(event, 'crime fiction')">CRIME FICTION</button><br>
+            <button class="width-100 align-left genreButton" onclick="selectGenre(event, 'fantasy')">FANTASY</button><br>
+            <button class="width-100 align-left genreButton" onclick="selectGenre(event, 'historical fiction')">HISTORICAL FICTION</button><br>
+            <button class="width-100 align-left genreButton" onclick="selectGenre(event, 'horror')">HORROR</button><br>
+            <button class="width-100 align-left genreButton" onclick="selectGenre(event, 'literary fiction')">LITERARY FICTION</button><br>
+            <button class="width-100 align-left genreButton" onclick="selectGenre(event, 'mystery')">MYSTERY</button><br>
+            <button class="width-100 align-left genreButton" onclick="selectGenre(event, 'noir')">NOiR</button><br>
+            <button class="width-100 align-left genreButton" onclick="selectGenre(event, 'other')">OTHER</button><br>
+            <button class="width-100 align-left genreButton" onclick="selectGenre(event, 'parranormal')">PARRANORMAL</button><br>
+            <button class="width-100 align-left genreButton" onclick="selectGenre(event, 'romance')">ROMANCE</button><br>
+            <button class="width-100 align-left genreButton" onclick="selectGenre(event, 'scifi')">SCIFI</button><br>
+            <button class="width-100 align-left genreButton" onclick="selectGenre(event, 'true crime')">TRUE CRIME</button><br>
+            
+        </div>
+    </div>
+
+    <script src="./SCRIPT/indexedDb.js"></script>
+    <script src="./SCRIPT/functions.js"></script>
+    <script src="./SCRIPT/jquery-3.7.1.min.js"></script>
+    <script src="./SCRIPT/menu.js"></script>
+    <script src="./SCRIPT/uMSG.js"></script>
+</body>
+
+</HTML>

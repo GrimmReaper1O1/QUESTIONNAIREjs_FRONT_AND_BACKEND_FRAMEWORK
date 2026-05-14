@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="./CSS/stylesheet.css" />
+</head>
+
+<body>
+    <header class="">
+        <div id="menu" class="menu-size height-auto fixed-right"></div>
+    </header>
+
+    
+    <div class="flex flex-direction-row justify-content-centered width-100">
+        <div class="flex flex-direction-column justify-content-centered vh100">
+            <div class="align-centered">
+        <button class="padding genreButton" onclick="clickerFunc(event, 'alter')">ALTER MODULE</button><br><br>
+        <button class="padding genreButton" onclick="clickerFunc(event, 'input')">COPY, PASTE OR INPUT INTO MODULE</button><br><br>
+        <button class="padding genreButton" onclick="clickerFunc(event, 'activate')">ACTIVATE MODULE</button><br><br>
+        <button onclick="submitCompletedModule(event)" class="padding genreButton">SUBMIT COMPLETED MODULE</button><br><br>
+            </div>
+    </div>
+    </div>
+
+    <script src="./SCRIPT/jquery-3.7.1.min.js"></script>
+    <script src="./SCRIPT/menu.js"></script>
+    <script src="./SCRIPT/createTraining.js"></script>
+    <script src="./SCRIPT/rOAP.js"></script>
+
+</body>
+
+</HTML>

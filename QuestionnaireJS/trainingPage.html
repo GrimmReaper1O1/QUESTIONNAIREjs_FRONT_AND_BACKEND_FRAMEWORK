@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+    <head>
+        <link rel="stylesheet" type="text/css" href="./CSS/stylesheet.css"/> 
+    </head>
+    <body>
+         <header class="">
+        <div id="menu" class="menu-size height-auto fixed-right"></div>
+    </header>
+
+     <div class="flex flex-direction-column align-centered vh18">
+        <div class="flex flex-direction-row justify-content-centered">
+            <div class="seethroughBlack width-rem border-radius">
+            <h1>PATHWAYS</h1>
+            </div>
+        </div>
+    </div>
+
+
+        <div id="initial" class="width-80 margin-auto vh80">
+            <div id="trainingModuleSelection" class="width-100 align-centered flex flex-direction-column justify-content vh90">
+            <button  onclick="pressFunction(event, 'objOpt')" class="selectionButton">SELECT OPTIONS AND PROGRESS THROUGH PATHWAYS</button><br><br>
+            <!-- <button  onclick="pressFunction(event, 'flow')" class="selectionButton">AUTOMATICALLY FLOW THROUGH</button><br><br> -->
+            <button onclick="pressFunction(event, 'sel')" class="selectionButton">SELECT PATH THROUGH MENU</button><br><br>
+            </div>
+        </div>
+
+        <div id="trainingDiv" class="hidden width-80 vh80 margin-auto">
+            <div >
+                <div class="align-centered">
+                    <button class="genreButton" onclick="clearPosition(event)">CLEAR MEMORY</button>
+                </div>
+                <div id="info" class="min-width-80 vh80 overflowScroll">
+                
+                </div>
+               
+            </div>    
+        </div>
+
+
+        <div id="menuSelection" class="vh80 hidden">
+            <div class="vh70 flex justify-content">
+                <div class="min-width-80 vh80  overflowYHidden">
+                    <div id="menuBoxEl" class="width-80 overflowScroll margin-auto vh80">
+                        <br>
+                    </div>
+                </div>    
+                <div class="width-20">
+                    <div id="failureSystem"></div>
+                    <button onclick="selectInfo(event, 'level')" class="selectionButton">SELECT LEVEL</button><br><br>
+                    <button onclick="selectInfo(event, 'individual')" class="selectionButton">SELECT OPTION</button><br><br>
+                    <button onclick="backMenuSelection(event)" class="selectionButton">BACK</button><br>
+                </div>
+            </div>
+        </div>
+    
+    <div id="viewLevelsOptions" class="hidden vh90 overflowHidden">
+        <div class="vh80 overflowScroll">
+            <div class="width-80 margin-auto">
+                <button onclick="backOptionPressFunction(event, 'level')"  class="width-100 selectionButton">BACK</button>
+            </div>
+            <div class="width-80 margin-auto seethroughBlack padding">
+                <div id="loopedOptionInfo">
+                    <br>
+                </div>
+            </div>
+            <div id="pictureDiv" class="hidden flex flex-direction-column max-width-20">
+                <div id="imageDiv2" class="imageHolderSmall  width100">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="viewIndividualOption" class="hidden  vh90 overflowHidden">
+        <div class="vh80 overflowScroll">
+            <div class="width-80 margin-auto">
+                <button onclick="backOptionPressFunction(event, 'individual')"  class="width-100 selectionButton">BACK</button>
+            </div>
+            <div class="width-80 margin-auto seethroughBlack padding">
+                <div id="optionInfoIndividual">
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="imageDiv" class="hidden vh80">
+    </div>
+        <script src="./SCRIPT/indexedDb.js"></script>
+        <script src="./SCRIPT/functions.js"></script>
+        <script src="./SCRIPT/jquery-3.7.1.min.js"></script>
+        <script src="./SCRIPT/trainingMenu.js"></script>
+        <script src="./SCRIPT/menu.js"></script>
+        <script src="./SCRIPT/trainingPage.js"></script>
+
+    </body>
+</HTML>

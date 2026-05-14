@@ -1,0 +1,39 @@
+Planning
+New system will utilize indexdb to store the initial array and gather keys to link to saved keys in indexedDB.
+Modules will be withdrawn from indexedDB and potentially stored in sessionStorage. 
+
+Needs tought.
+
+Alternatively they can be stored in indexedDB and withdrawn at each step however would be slower and 
+require more alteration. 
+
+Needs thought.
+
+
+
+
+Will utilize an array for a looped menu system as well as pagination to loop through the array. 
+Keys to object within array will include link, uid, author, description, keywords, authorId, and name.
+
+Will need a minimum of 6 pages; yes no page, view users database of mods page, search users database of
+modes page, search actual database of mods page, start link page, read mods or alter mods link page.
+                                            
+                                            --Important--
+Read mods or alter mods page will be bypassed in the event the mod wasn't made by the user or author.
+
+All read users mods, search users mods, and search database of mods, require both pagination and 
+organization otherwise; a system that is based on genre can be developed. 
+
+Checkboxes in search fields will be utilized to select array entries based on name, keywords, and author.
+The checkboxes will need to deselect and select based on clicking individual options. This is based in all 
+search input fields.
+
+System will be linked to the pre-existing system and work in a similar fashion in prototype two commercial
+version.
+
+Bugs 
+Currently checkboxes kill entire sessionStorage in relation to the removal of images displayed on basis of 
+seconds or displayed on page while read.
+
+Alterations 
+Move the back button above the image in the test system otherwise known as the game system.

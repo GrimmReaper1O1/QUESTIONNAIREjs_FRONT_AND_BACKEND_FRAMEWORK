@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+    <head>
+        <link rel="stylesheet" type="text/css" href="./CSS/stylesheet.css"/>
+    </head>
+    <body>
+        <header class="vh15 header align-left">
+            <div class="logo align-left"><br></div>
+            <div class="inline align-right vh15 width-80">
+                <nav class="padding-1rem">
+                    <a href="index.html"> HOME </a>|
+                    <a href="sneakPeak.html"> SNEAK PEAK </a>|
+                    <a href="competitions.html"> COMPETITIONS </a>|
+                    <a href="signUp.html"> SIGN UP! </a>|
+                    <a href="signIn.html"> SIGN IN!</a>
+                </nav>
+            </div>
+        </header>
+        <div id="displayMessage" class="hidden width-50 flex flex-direction-row justify-content-center vh75 margin-auto " onclick="hide()">
+            <div class="flex flex-direction-column justify-content-center blackToRed">
+                <div class="flex flex-direction-row justify-content-center">
+                    <div class="align-centered width-100">
+                        <h2 id="message"></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+                        
+        <div id="field" class="width-50 flex flex-direction-row justify-content-center vh75 margin-auto ">
+            <div class="flex flex-direction-column justify-content-center blackToRed">
+                <div class="flex flex-direction-row justify-content-center">
+                    <div class="align-right">
+                        
+                        EMAIL: <input class="width-50 " type="email" id="email"/><br> <br>   
+                       
+                        PASSWORD: <input class="width-50" type="password" id="password"/><br><br>
+                                 
+                    </div>
+                </div>
+                <div class="align-centered">
+                    <button onclick="signIn(event)">SUBMIT</button>
+                </div>
+            </div>
+        </div>
+<script src="./SCRIPT/jquery-3.7.1.min.js"></script>
+<script src="./SCRIPT/menu.js"></script>
+<script src="./SCRIPT/signIn.js"></script>
+        </body>
+
+</HTML>

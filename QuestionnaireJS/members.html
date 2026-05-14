@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+    <head>
+        <link rel="stylesheet" type="text/css" href="./CSS/stylesheet.css"/>
+    </head>
+    <body>
+        <header class="vh10">
+            <div id="menu" class="menu-size height-auto fixed-right"></div>
+        </header>
+      
+
+            <div id="mainSplashScreen" onclick="removeSplash(event)" class=" height-6rem vh90 flex flex-direction-column align-centered">
+                <h1>PATHWAYS</h1>
+                <h6>CLICK ME!</h6>
+            </div>
+            
+            <div id="indexText" onclick="addSplash(event)" class="overflowScroll align-centered height-auto margin-auto align-centered width-80 seethroughBlack padding hidden vh80">
+                <h1>PATHWAYS</h1>
+                <h4>INTRODUCTION</h4>
+                <p>Pathways is an interactive learning solution based on events and choices
+                    utilized through multiple choice questions in order to teach and reinforce 
+                    proceedural knowledge.
+                </p>
+                <p>Students can create their own senareos to share with others in order to 
+                    reinforce their knowledge of proceedure as well as give this information 
+                    to thier organizations or institutions to share with the rest of the class.
+                    This allows some of the workload to be taken off the individual.
+                </p>
+                <p>Along with multiple choices that lead to multiple results there are answers
+                    why you should and should not have chosen that result given the training 
+                    provided. It is advised that the student fills this informaiton in the feild 
+                    but it isn't necessary and won't show if the field is left empty. It is also 
+                    advised that this content is read in order to promote repetition of learning 
+                    and the cementation of knowledge.
+                </p>
+                <p>A menu system is provided on the top right corner of the page where you can 
+                    create training and find a section to open modules and copy the text. You can 
+                    also paste this information within the section provided to copy others learning 
+                    material or share your own. Please be aware that this information is stored on 
+                    the browser and caution should be taken in regards to this information if the 
+                    information is confidential. Regardless, if so, the information can be uploaded 
+                    and removed at will otherwise consider running a browser that runs on a usb stick
+                    or something for security purposes. The information should not readily be accessable
+                    by anyone who opens the browser as it requires the website to be shown. That said it
+                    must be known that this website doesn't encrypt any data.
+                </p>
+                <p>
+                    You can copy segments, which copies from within the segment, not inclusive of the selected segment.
+                    Alternatively you can copy individual segments via retrieve information inclusive of the selected item.
+                    However, you must input the information with the input information page. 
+                </p>
+                <p>
+                    You can now copy modules without having to redo the links. You can also copy segments and whole modules without 
+                    redoing links. You can also copy multiple modules into your top path without redoing links.
+                </p>
+                <p>
+                    Be careful when deleting segments within create training. I figured you may want to delete in quick succession
+                    via this system so it doesn't come up with a quesiton as to whether you want to delete. This may change in
+                    future versions.
+                </p>
+                <p>
+                    The copy segment button can be used to copy the entire module page but does have limitations. Sorry... 
+                    The current version has limitations associated with the browser in relation to the time it takes to 
+                    copy in a loop and in relation to the amount of data held in session storage. This limitation is capable
+                    of copying a fairly large number of segments however and shouldn't really limit your ability for training.
+                    Unfortunately choose your own adventure books may not be an option if they're too long. If this happens, 
+                    you simply won't see the item appear. Again sorry... There's not really much I can do at this time about 
+                    that.
+                </p>
+                <p>
+                    There is also functionallity for linking segments to other segments to start at a 
+                    previous or future position in order to restart certain pathways if one should need 
+                    to undo steps. This link allows you to not have to rewrite training material please
+                    fill in the link field if you utilize this option as this will be the information shown 
+                    instead of the usual. It links to the previous section and displays that information
+                    with the options of the current section. You can also delete all links from a segment.
+                </p>
+                <p>
+                    You can display pictures for a number of seconds before or if wanted display a picture 
+                    in the selection process for as long as you haven't selected an option. This is beneficial 
+                    for such people as emergency services and should be utilized to test quick response to 
+                    situations such as fire fighting, medical proceedures, or otherwise.
+                </p>
+                <p>
+                    The system colour codes the menu as well. Green for correct pathways, red for wrong pathways, 
+                    yellow for links, and orange for deleted links. The colours can be changed to correct if needed.
+                    Otherwise yellow will automatically be added whenever a link is created and unchecking correct 
+                    will turn it red.
+                </p>
+                <p>
+                    To save the information this webpage utilizes an api called indexedDB.
+                </p>
+                <p>You can make as many multiple choice quesitons dependent on your needs. Each level will 
+                    allow for multiple choices within choices. Try to keep it entertaining for other 
+                    students or workers as this will keep you and others engaged and increase the pace
+                    of learning as well as keep you and others motivated to continue. 
+                </p>
+                <p>Please ensure you read 
+                    the reasons associated as to why choices either were good or bad in relation to the 
+                    path you chose while choosing your path or after you have completed your path. The 
+                    repetition helps to maintain memory for a longer duration regardless of knowing the 
+                    knowledge.
+                </p>
+                <p>
+                    It also makes for a wicked word game or choose your own adventure system.
+                </p>
+                <p>
+                    Enjoy your training.
+                </p>
+            </div>
+<script src="./SCRIPT/jquery-3.7.1.min.js"></script>
+<script src="./SCRIPT/menu.js"></script>
+<script src="./SCRIPT/members.js"></script>
+        </body>
+
+</HTML>

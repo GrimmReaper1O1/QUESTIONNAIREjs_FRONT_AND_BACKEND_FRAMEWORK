@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="./CSS/stylesheet.css" />
+</head>
+
+<body>
+    <header class="">
+        <div id="menu" class="menu-size height-auto fixed-right"></div>
+    </header>
+
+    <div class="flex flex-direction-column align-centered vh18">
+        <div class="flex flex-direction-row justify-content-centered">
+            <div class="seethroughBlack width-rem border-radius">
+            <h1>PATHWAYS</h1>
+            </div>
+        </div>
+    </div>
+    <div class="hidden align-centered" id="backDiv">
+            <button class="genreButton" onclick="showSearch(event)">SHOW SEARCH FIELD</button>
+        </div>
+    <div id="initial" class="width-80 margin-auto vh80">
+        <div id="trainingModuleSelection" class="width-100 align-centered flex flex-direction-column justify-content">
+            <div>
+                <input onclick="checkBoxes('title')" type="checkbox" id="title"/>Title &nbsp;<input onclick="checkBoxes('keywords')" type="checkbox" id="keywords" />Keywords &nbsp;<input onclick="checkBoxes('author')" type="checkbox" id="author"/>Author<br><br>
+                <input type="text" id="searchField"/>
+                <button  onclick="searchUsersDatabase(event, 'sYM')" class="searchButton">SEARCH!</button><br><br>
+            </div>
+       </div>
+       <div id="searchDiv" class="hidden width-100 flex flex-direction-row vh75">
+            <div class="min-width-80 vh75 overflowScroll" id="startMenu">
+            </div>
+            
+       </div>
+       <div id="paginationControls" class="hidden align-centered"></div>
+    </div>
+
+    <script src="./SCRIPT/indexedDb.js"></script>
+    <!-- <script src="./SCRIPT/functions.js"></script> -->
+    <script src="./SCRIPT/jquery-3.7.1.min.js"></script>
+    <script src="./SCRIPT/menu.js"></script>
+    <script src="./SCRIPT/dMS.js"></script>
+</body>
+
+</HTML>

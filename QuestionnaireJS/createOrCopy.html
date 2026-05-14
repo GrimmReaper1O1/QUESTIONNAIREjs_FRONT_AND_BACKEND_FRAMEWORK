@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+    <head>
+        <link rel="stylesheet" type="text/css" href="./CSS/stylesheet.css"/>
+    </head>
+    <body>
+
+    <header class="">
+        <div id="menu" class="menu-size height-auto fixed-right"></div>
+    </header>
+
+    <div class="flex flex-direction-column align-centered vh18">
+        <div class="flex flex-direction-row justify-content-centered">
+            <div class="seethroughBlack width-rem border-radius">
+            <h1>PATHWAYS</h1>
+            </div>
+        </div>
+    </div>
+
+
+
+        <div id="main" class="vh80">
+            <div class="vh70 flex justify-content">
+                <div class="min-width-80 vh80  overflowYHidden">
+                    <div id="menuBoxEl" class="width-80 overflowScroll margin-auto vh80">
+                        <br>
+                    </div>
+                </div>    
+                <div class="width-20">
+                    <button class="selectionButton" onclick="pressFunction2(event, 'retrieve')">RETREIVE INFORMATION!</button><br><br>
+                    <button class="selectionButton" onclick="pressFunction2(event, 'input')">INPUT INFORMATION!</button><br><br>
+                    <button class="selectionButton" onclick="pressFunction2(event, 'copy')">COPY SEGMENT</button><br><br>
+                    <button class="selectionButton" onclick="pressFunction2(event, 'paste')">PASTE SEGMENT</button><br><br>
+                    <button class="selectionButton" onclick="del(event, false)">DELETE</button><br><br>
+                    
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="retrievalDivBox" class="width-100 vh80 align-centered margin-auto hidden">
+            <div class="overflowScroll vh80">
+                <button class="selectionButton" onclick="pressBack(event, 'retrieval')">back</button><br><br>
+                <button class="selectionButton" onclick="copyToClipboardRetrieval(event)">COPY TO CLIPBOARD</button><br><br>
+                <h1 id="sucClipboardCopy"></h1>
+                <div id="retreivalDiv" class="vh80 width-100">
+                    <textarea id="retreivalTextArea" class="width-100 vh70"></textarea>
+                </div>
+                <button class="selectionButton" onclick="pressBack(event, 'retrieval')">BACK</button><br><br>
+                <button class="selectionButton" onclick="copyToClipboardRetrieval(event)">COPY TO CLIPBOARD</button><br><br>
+            </div>
+        </div>
+
+
+
+        <div id="inputDiv" class="vh80 width-100 margin-auto align-centered hidden">
+            <div class="overflowScroll vh80">
+                <button class="selectionButton" onclick="pressBack(event, 'input')">BACK</button><br><br>
+                <button class="selectionButton" onclick="insertInformationPage(event)">INPUT INFORMATION</button><br><br>
+                <button class="selectionButton" onclick="pasteInfoPage(event)">PASTE FROM CLIPBOARD</button><br><br>
+                <span>If copying a module you will need to select the module then deselect the module to insert at that location.</span>
+                <span>If selecting a level you  must insert where you want your selection to be placed.</span>
+                <textarea id="saveTextArea" class="width-100 height-vh60 margin-auto vh70"></textarea>
+                <button class="selectionButton" onclick="pressBack(event, 'input')">BACK</button><br><br>
+                <button class="selectionButton" onclick="insertInformationPage(event)">INPUT INFORMATION</button><br><br>
+                <button class="selectionButton" onclick="pasteInfoPage(event)">PASTE FROM CLIPBOARD</button><br><br>
+            </div>
+        </div>
+
+        <div id="messageDiv" class="hidden align-centered vh90 flex flex-direction-column overflowHidden">
+            <div class="overflowScroll">
+                <span id="message">ARE YOU COMPLETELY SURE?</span>
+                <div id="yesNo" class="align-centered">
+                    <button id="yes" onclick="yes(event, false)">YES!</button>
+                    <button id="no" onclick="no(event, false)">NO!</button>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="./SCRIPT/indexedDb.js"></script>
+        <script src="./SCRIPT/functions.js"></script>
+        <script src="./SCRIPT/jquery-3.7.1.min.js"></script>
+        <script src="./SCRIPT/trainingMenu.js"></script>
+        <script src="./SCRIPT/menu.js"></script>
+        <script src="./SCRIPT/purify.min.js"></script>
+        <script src="./SCRIPT/moduleSelection.js"></script>
+    </body>
+</HTML>

@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="./CSS/stylesheet.css" />
+</head>
+
+<body>
+    <header class="">
+        <div id="menu" class="menu-size height-auto fixed-right"></div>
+    </header>
+
+    <div class="flex flex-direction-column align-centered vh18">
+        <div class="flex flex-direction-row justify-content-centered">
+            <div class="seethroughBlack width-rem border-radius">
+            <h1>PATHWAYS</h1>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="menuSelection" class="vh80">
+        <div class="vh80 flex justify-content">
+            <div class="min-width-80 vh80 overflowYHidden">
+                <div id="menuBoxEl" class="margin-auto width-80  overflowScroll vh80">
+                    <br>
+                </div>
+            </div>
+            <div class="max-width-20">
+                <div id="failureSystem"></div>
+                <button onclick="selectInfo(event, 'level')" class="selectionButton">SELECT LEVEL</button><br><br>
+                <button onclick="selectInfo(event, 'individual')" class="selectionButton">SELECT OPTION</button><br><br>
+                <button onclick="pressFunction3(event, 'alter')" class="selectionButton">ALTER OPTION</button><br><br>
+                <button onclick="pressFunction3(event, 'module')" class="selectionButton"> CREATE MODULE</button><br><br>
+                <button onclick="pressFunction3(event, 'option')" class="selectionButton">CREATE OPTION</button><br><br>
+                <button onclick="delEntry(event)" class="selectionButton">DELETE</button><br><br>
+                <button onclick="swap(event)" class="selectionButton">SWAP</button><br><br>
+                <button id="link" onclick="link(event)" class="selectionButton">LINK</button><br><br>
+                <button onclick="delLink(event)" class="selectionButton">DELETE ITEMS LINKS</button><br><br>
+            
+            
+            </div>
+        </div>
+    </div>
+
+
+    <div id="fieldPane" class="hidden vh90 ">
+        <div class="flex vh90 overflowHidden min-width-65">
+            <div class="min-width-80 overflowScroll vh90 margin-auto justify-content">
+
+                <label for="secs">NUMBER OF SECONDS TO DISPLAY IMAGE<br><br>
+                    <input type="number" id="secs" class="width-100" /><br><br>
+                </label>
+                <label for="type">MODULE
+                    <input id="type" type="checkbox" />
+                </label><br>
+                <label for="cONC">CORRECT PATHWAY
+                    <input id="cONC" type="checkbox" />
+                </label><br>
+                <label for="linkPathway">LINKED PATHWAY (DON'T DISABLE IF IT'S A LINK)
+                    <input id="linkPathway" type="checkbox" />
+                </label><br>
+                <label for="displayImageBefore">DISPLAY IMAGE BEFORE
+                    <input id="displayImageBefore" type="checkbox" />
+                </label><br>
+                <label for="displayImageWhile">DISPLAY IMAGE WHILE
+                    <input id="displayImageWhile" type="checkbox" />
+                </label><br><br>
+                <label for="picName">PICTURE FILE NAME<br><br>
+                    <input type="text" id="picName" class="fieldWidth-90 width-100" /><br><br>
+                </label>
+                <label for="breifDescription">BRIEF DESRIPTION<br><br>
+                    <textarea id="breifDescription"
+                        class="fieldWidth-90 height-6rem width-100"></textarea></label><br><br>
+                <label for="option">OPTION TO CHOOSE<br><br>
+                    <textarea id="option" class="fieldWidth-90 height-15rem width-100"></textarea></label><br><br>
+                <label for="answerToOption">ANSWER TO OPTION <br><br>
+                    <textarea id="answerToOption" class="fieldWidth-90 height-15rem width-100"></textarea>
+                    <label id="introductionLabel" for="introduction" class="hidden">INTRODUCTION <br><br>
+                        <textarea id="introduction" class="hidden fieldWidth-90 height-15rem width-100"></textarea>
+                    </label><br><br>
+                    <label id="linkLabel" for="linkText" class="">LINK TEXT<br><br>
+                        <textarea id="linkText" class="fieldWidth-90 height-15rem width-100"></textarea>
+                    </label><br><br>
+                    
+            </div>
+            <div class="width-34">
+                <span id="trainilngObj"></span>
+                <button onclick="backfieldPane(event)" class="selectionButton">BACK</button><br>
+                <button onclick="save(event)" class="selectionButton">SAVE</button><br>
+                <button onclick="view(event)" class="selectionButton">VIEW</button><br>
+                <button id="deleteInfo" onclick="del(event)" class="selectionButton">DELETE</button><br>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="viewLevelsOptions" class="hidden vh90 overflowHidden">
+        <div class="vh80 overflowScroll">
+            <div class="width-80 margin-auto">
+                <button onclick="backOptionPressFunction(event, 'level')"  class="width-100 selectionButton">BACK</button>
+            </div>
+            <div class="width-80 margin-auto seethroughBlack padding">
+                <div id="loopedOptionInfo">
+                    <br>
+                </div>
+            </div>
+            <div id="pictureDiv" class="hidden flex flex-direction-column max-width-20">
+                <div id="imageDiv" class="imageHolderSmall  width100">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="viewIndividualOption" class="hidden  vh90 overflowHidden">
+        <div class="vh80 overflowScroll">
+            <div class="width-80 margin-auto">
+                <button onclick="backOptionPressFunction(event, 'individual')"  class="width-100 selectionButton">BACK</button>
+            </div>
+            <div class="width-80 margin-auto seethroughBlack">
+                <div id="optionInfoIndividual">
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="messageDiv" class="hidden align-centered vh90 flex flex-direction-column overflowHidden">
+        <div class="overflowScroll">
+            <input type="text" id="moduleField" class="hidden width-80" /><br>
+            <h4 id='insert' class="hidden">INSERT INTRODUCTION</h4>
+            <textarea id="introduction2" class="hidden width-100 height-15rem"></textarea>
+            <span id="message">ARE YOU COMPLETELY SURE?</span><br><br>
+            <div id="yesNo" class="align-centered">
+                <button id="modSav" onclick="moHelp(event)" class="hidden selectionButton">SAVE</button>
+                <button id="yes" onclick="yes(event)" class="selectionButton">YES!</button><br><br>
+                <button id="no" onclick="no(event)" class="selectionButton">NO!</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./SCRIPT/indexedDb.js"></script>
+    <script src="./SCRIPT/functions.js"></script>
+    <script src="./SCRIPT/jquery-3.7.1.min.js"></script>
+    <script src="./SCRIPT/menu.js"></script>
+    <script src="./SCRIPT/trainingMenu.js"></script>
+    <script src="./SCRIPT/purify.min.js"></script>
+    <script src="./SCRIPT/createTraining.js"></script>
+</body>
+
+</HTML>

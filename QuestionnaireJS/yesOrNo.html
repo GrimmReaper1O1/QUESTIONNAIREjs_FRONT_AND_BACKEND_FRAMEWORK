@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="./CSS/stylesheet.css" />
+</head>
+
+<body>
+
+    <header class="">
+        <div id="menu" class="menu-size height-auto fixed-right"></div>
+    </header>
+
+    <div class="flex flex-direction-column align-centered vh100">
+        <div class="flex flex-direction-row justify-content-centered">
+            <div id="saveMod">
+                <h1>DO YOU WANT TO SAVE THE MODULE WITH THE INFORMATION BELOW?</h1>
+                <div class="hidden" id="inputDiv">
+                </div>
+            </div>
+            <div class="hidden" id="delete">
+                <h1>DO YOU WANT TO DELETE THESE MODULES?</h1>
+                <div id="deleteInputDiv">
+                </div>
+            </div>
+        </div>
+        <div>
+            <button class="genreButton" onclick="yesOrNo(event, 'yes')">YES</button>
+            <button class="genreButton" onclick="yesOrNo(event, 'no')">NO</button>
+        </div>
+    </div>
+    
+
+    <script src="./SCRIPT/indexedDb.js"></script>
+    <script src="./SCRIPT/jquery-3.7.1.min.js"></script>
+    <script src="./SCRIPT/menu.js"></script>
+    <script src="./SCRIPT/createTraining.js"></script>
+    <script src="./SCRIPT/yON.js"></script>
+
+</body>
+
+</HTML>
+

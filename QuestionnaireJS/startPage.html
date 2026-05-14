@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="./CSS/stylesheet.css" />
+</head>
+
+<body>
+    <header class="">
+        <div id="menu" class="menu-size height-auto fixed-right"></div>
+    </header>
+
+    <div class="flex flex-direction-column align-centered vh18">
+        <div class="flex flex-direction-row justify-content-centered">
+            <div class="seethroughBlack width-rem border-radius">
+            <h1>PATHWAYS</h1>
+            </div>
+        </div>
+    </div>
+    
+    <div id="initial" class="width-80 margin-auto vh80">
+        <div id="trainingModuleSelection" class="width-100 align-centered flex flex-direction-column justify-content vh90">
+        <button  onclick="pressFunctionStart(event, 'sYM')" class="selectionButton">SEARCH YOUR MODULES</button><br><br>
+        <button  onclick="pressFunctionStart(event, 'vYM')" class="selectionButton">VIEW YOUR MODULES</button><br><br>
+        <button onclick="pressFunctionStart(event, 'sDM')" class="selectionButton">SEARCH DATABASE MODULES</button><br><br>
+        </div>
+    </div>
+
+    <script src="./SCRIPT/indexedDb.js"></script>
+    <script src="./SCRIPT/functions.js"></script>
+    <script src="./SCRIPT/jquery-3.7.1.min.js"></script>
+    <script src="./SCRIPT/menu.js"></script>
+    <script src="./SCRIPT/trainingMenu.js"></script>
+    <script src="./SCRIPT/purify.min.js"></script>
+    <script src="./SCRIPT/createTraining.js"></script>
+</body>
+
+</HTML>

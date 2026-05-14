@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="./CSS/stylesheet.css" />
+</head>
+
+<body>
+    <header class="">
+        <div id="menu" class="menu-size height-auto fixed-right"></div>
+    </header>
+
+    <div class="flex flex-direction-row justify-content-centered vh100 margin-auto">
+        <div class="flex flex-direction-column align-centered">
+            <h1>PLEASE NAME YOUR MODULE OR GROUP OF MODULES AND FILL IN THE DETAILS.</h1>
+            <button class="genreButton" onclick="back(event)">BACK</button>
+            AUTHOR NAME:<input type="text" id="author" class=""/><br>
+            MODULE NAME:<input type="text" id="title" class=""/><br>
+            KEYWORDS:<input type="text" id="keywords" value="NO MORE THAN EIGHT KEYWORDS NO LESS THAN TWO"/><br>
+            DESCRIPTION
+            <textarea class="" id="description"></textarea><br>
+            <select id="genre">
+                <option value="crime fiction">CRIME FICTION</option>
+                <option value="fantasy">FANTASY</option>
+                <option value="historical fiction">HISTORICAL FICTION</option>
+                <option value="horror">HORROR</option>
+                <option value="literary fiction">LITERARY FICTION</option>
+                <option value="mystery">MYSTERY</option>
+                <option value="noir">NOIR</option>
+                <option value="other">OTHER</option>
+                <option value="parranormal">PARRANORMAL</option>
+                <option value="romance">ROMANCE</option>
+                <option value="scifi">SCIFI</option>
+                <option value="true crime">TURE CRIME</option>
+            </select>
+            <button onclick="submitModuleName(event)">NAME MODULE</button>
+        </div>
+    </div>
+
+    <script src="./SCRIPT/indexedDb.js"></script>
+    <!-- <script src="./SCRIPT/functions.js"></script> -->
+    <script src="./SCRIPT/jquery-3.7.1.min.js"></script>
+    <script src="./SCRIPT/menu.js"></script>
+    <script src="./SCRIPT/createMod.js"></script>
+</body>
+
+</HTML>
