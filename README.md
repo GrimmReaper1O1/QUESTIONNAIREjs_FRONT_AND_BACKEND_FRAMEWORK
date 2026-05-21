@@ -13,3 +13,4 @@ but is a means to learn through the use of multiple choice questions. The softwa
 ### This software resides under the MIT Licence. 
 ### The database can be found in the dump file.
 ### Ammendment: You can now enter an entire course created by chatGPT given you utilize the JSON framework provided and utilize an adequate prompt. You can also get ChatGPT to enter question sets dependent on prompts but you have to paste the JSON in both cases.
+### Ammendment: Now includes categorized two-level-randomized non repeating flash card system. I functions by ranomizing the choice of category and the flashcard and doesn't show the same category or flashcard twice in a row and doesn't repeat currently incomplet. Also contains filling system for flashcards. Flashcards are under subject but not currently linked to testing system and can be accessed through alter subject in create training page. 
