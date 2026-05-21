@@ -1,21 +1,116 @@
+let paragraphReplace = (string) => {
+    console.log(string);
+    let text = string.replace(/\n(?!;)/g, '</p><p>');
+    text = text.replace(';</p><p>', '');
+    return text;
 
-const fetchIt =  (option, object = '') => {
+};
+
+const enterInfo = (e) => {
+    e.preventDefault();
+    let category = document.getElementById('categories');
+    if (category.value !== 'Other') {
+    let qEl = document.getElementById('question');
+    let aEl = document.getElementById('answer');
+    // if (qEl.classList.contains('questionGroup')) {
+    //     qEl.classList.remove('questionGroup');
+    //     aEl.classList.remove('answerGroup');
+    // }
+    let questionGroup = document.getElementsByClassName('questionGroup');
+    let answerGroup = document.getElementsByClassName('answerGroup');
+    let object = {};
+    object.questions = [];
+    object.answers = [];
+    console.log(questionGroup[0].value);
+    for (let i = 0; i < questionGroup.length; i++) {
+    object.questions.push(questionGroup[i].value);
+    object.answers.push(answerGroup[i].value);
+    }
+    object.category = category.value;
+    console.log(object);
+    fetchIt('send', object);
+    setTimeout(
+        ()=> {
+    fetchIt('category', {category: category.value});
+        }, 100);
+    } else {
+        // put error message here
+    }
+
+}
+
+const insertFlashCardsViaCategoryAndSubject = (object) => {
+    let elFlashCards = document.getElementById('flashCards');
+    let stringQ = 'Question ';
+    let stringA = 'Answer ';
+    let inputString = '';
+    let elDiv = document.createElement('div');
+    elFlashCards.innerHTML = '';
+    let questionHEl = document.createElement('h4');
+    let answerHEl = document.createElement('h4');
+    let paragraphEl = document.createElement('p');
+    for (let i = 0; i < object.length; i++) {
+        let qH = questionHEl.cloneNode(true);
+        qH.textContent = `Question ${i+1}:`;
+        let aH = questionHEl.cloneNode(true);
+        aH.textContent = 'Answer';
+        let p1 = '<p>';
+        let p2 = '</p>';
+        let strObj1 = paragraphReplace(object[i].question);
+        let strObj2 = paragraphReplace(object[i].answer);
+       let str1 = p1 + strObj1 + p2;
+       let str2 = p1 + strObj2 + p2;
+        let div1 = document.createElement('div');
+        let div2 = document.createElement('div');
+        div1.classList.add('width-100');
+        div2.classList.add('width-100');
+         div1.innerHTML = str1;
+         div2.innerHTML = str2;
+         console.log(str1);
+        elDiv.appendChild(qH);
+        elDiv.appendChild(div1);
+        elDiv.appendChild(aH);
+        elDiv.appendChild(div2);
+    }
+    elFlashCards.appendChild(elDiv);
+    
+}
+
+const insertCategories = (object) => {
+        let catSelector = document.getElementById('categories');
+        let object2 = [];
+
+      
+
+        for (let i = 0; i < object.length ; i++) {
+            let catInput = document.createElement('option');
+            catInput.value = object[i].category;
+            catInput.textContent = object[i].category;
+            catSelector.appendChild(catInput);
+        }
+
+}
+
+const fetchIt =  (option, object1 = {}) => {
     
     
     let uri, options;
     
-    object = {method: 'PUT', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(object)};
+    object1.subjectId = JSON.parse(sessionStorage.getItem('subjectId'));
+    object1.id = JSON.parse(localStorage.getItem('id'));
+    options = {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(object1)};
     switch (option) {
-        case 'category':
-            uri = `https://localhost:5000/api/flashCards/insertCategory`;
-            
+        case 'categories':
+            uri = `http://localhost:5000/api/auth/flashCards/fetchCategories`;
+            options.method = 'POST'
             break;
             case 'send':
-                uri = `https://localhost:5000/api/flashCards/insertFlashCards`;
+                uri = `http://localhost:5000/api/auth/flashCards/insertFlashCards`;
+                options.method = 'PUT';
                 break;
                 default:
-                    uri = `https://localhost:5000/api/flashCards/getFlashCardsViaSubject`;
-                    object.method = 'POST';
+                    uri = `http://localhost:5000/api/auth/flashCards/getFlashCardsViaCategoriesAndSubject`;
+                    options.method = 'POST';
                     break;
                     
                 };
@@ -25,13 +120,12 @@ const fetchIt =  (option, object = '') => {
                             let data = await response.json();
                             console.log(data);
                             if (option === 'categories') {
-                                
-                            } else if (option === 'send') {
-                                
-                            } else {
-                                
-                            }
-                        } else {
+                                insertCategories(data.result);
+                                sessionStorage.setItem('categoryArray', JSON.stringify(data.result));
+                                return
+                            } 
+                                insertFlashCardsViaCategoryAndSubject(data.result);
+                                return          } else {
                             throw new Error("The request couldn't go through!");
                         }
                     }).catch(error => {
@@ -42,12 +136,32 @@ const fetchIt =  (option, object = '') => {
                     console.log(e);
                 }
                 console.log('not halted');
-            }
+}
             
-            let selCategory = (e) => {
+const clearBoxes = (e) => {
+                    e.preventDefault();
+                    sessionStorage.removeItem('textArray');
+                    let questionGroup = document.getElementsByClassName('questionGroup');
+                    let answerGroup = document.getElementsByClassName('answerGroup');
+                    for (let i = 0 ; i < questionGroup.length; i++) {
+                        questionGroup[i].value = '';
+                        answerGroup[i].value = '';
+                    }
+                
+}
+
+let selectCategory = (e) => {
+                e.preventDefault();
                 let catSelector = document.getElementById('categories');
                 console.log('it got in');
-                if (e.target.value === 'other') {
+               
+                
+                if (e.target.value === 'Other') {
+                   
+
+                    let flashDiv = document.getElementById('flashCards');
+                    flashDiv.innerHTML = '';
+                    
                     let divEl = document.createElement('div');
                     divEl.id = 'catDiv';
                     let inputDiv = document.getElementById('catInputDiv');
@@ -66,13 +180,15 @@ const fetchIt =  (option, object = '') => {
                     divEl.appendChild(el2);
                     inputDiv.appendChild(divEl);
                     el2.addEventListener('click', eventListnerFunc);
-            
+                    
                 } else {
-                try {
-                    let divEl = document.getElementById('catDiv');
-                    divEl.remove();
-                }catch (e) {
-                    console.log(e);
+                    try {
+                        let divEl = document.getElementById('catDiv');
+                        divEl.remove();
+                        fetchIt('category', {category: e.target.value});
+                        
+                    }catch (e) {
+                    // console.log(e);
                 }
             
             
@@ -86,18 +202,22 @@ const fetchIt =  (option, object = '') => {
                 let flashEl = document.getElementById('flashcards');
             
             
-            };
+};
             
             const changeNumberOfFlashcards = (e) => {
                 let start, textArrayTemp, textArray, el2, el4, el5, el6, el7, el8, el9, savedTextArray1, savedTextArray2, numeral;
-                if (typeof e.target !== 'undefined') {
+                
                     numeral = e.target.value;
      start = true;
-    } else {
-        numeral = e;
-        start = false;
-    }
-   
+                let subBut = document.getElementById('enterInfo');
+                if (numeral > 0) {
+                    if (subBut.classList.contains('hidden')) subBut.classList.remove('hidden');
+                    
+                } else {
+                    
+                    if (!subBut.classList.contains('hidden')) subBut.classList.add('hidden');
+                }
+
     console.log(numeral);
     let infoArray = [];
     let insertEl2 = document.getElementById('repeatingFlashcardInputs');
@@ -110,16 +230,18 @@ const fetchIt =  (option, object = '') => {
         let insertEl = document.getElementById('repeatingFlashcardInputs');
         let el = document.getElementsByClassName('questionGroup');
         let el3 = document.getElementsByClassName('answerGroup');
-       
+        let button = document.getElementById('enterInfo')
+     
         let answerTextHeading = document.createElement('h4');
-   
+        let tAQuestion = document.getElementById('question');
+        let tAAnswer = document.getElementById('answer');
+        console.log(tAAnswer);
         textArrayTemp = [];
         textArrayTemp.push([]);
         textArrayTemp.push([]);
    
         for (let i = 0 ; i < el.length ; i++) {
-            el7.push(el[i].cloneNode(true));
-            el6.push(el3[i].cloneNode(true));
+       
             textArrayTemp[0].push(el[i].value);
             textArrayTemp[1].push(el3[i].value);
             console.log(textArrayTemp);
@@ -129,8 +251,7 @@ const fetchIt =  (option, object = '') => {
       
         if (sessionStorage.getItem('textArray') !== null) {
         textArray = JSON.parse(sessionStorage.getItem('textArray'));
-        el[0].value = textArray[0][0];
-        el3[0].value = textArray[1][0];
+
       
         } else {
               textArray = [];
@@ -138,7 +259,7 @@ const fetchIt =  (option, object = '') => {
         textArray.push([]);
   
         }
-        if (start) {
+       
         if (textArray[0].length <= textArrayTemp[0].length) {
             for (let i = 0; i < textArrayTemp[0].length; i++) {
                 if (i < textArray[0].length) { 
@@ -169,71 +290,87 @@ const fetchIt =  (option, object = '') => {
         answerTextHeading.textContent = 'QUESTION';
         let questionTextHeading = document.createElement('h4');
         questionTextHeading.textContent = 'ANSWER';
-        for (let i = 0; i < Number(numeral)+1 ; i++) {
-            if (i !== 0) {
-            el5 = questionTextHeading.cloneNode(true);
-            el4 = answerTextHeading.cloneNode(true);
-            let temp1 = el7[0].cloneNode(false);
-            let temp2 = el6[0].cloneNode(false);
+        for (let i = 0; i < Number(numeral) ; i++) {
+            
+            let temp1 = tAQuestion.cloneNode(true);
+            let temp2 = tAAnswer.cloneNode(true);
             temp1.value = '';
             temp2.value = '';
             temp1.classList.add('questionGroup');
             temp2.classList.add('answerGroup');
-            
+            temp1.id = '';
+            temp2.id = '';
             el7.push(temp1);
             el6.push(temp2);
             console.log(typeof textArray);
-            console.log(el[0].value, el[0].textcontent);
+        }
+        console.log(el7);
+        for (let i = 0 ; i < Number(numeral); i++) {
             if (typeof textArray[0][i] !== 'undefined') {
-            el7[i].value = textArray[0][i];
-            el6[i].value = textArray[1][i];
+                console.log(textArray[0][i]);
+                el7[i].value = textArray[0][i];
+                el6[i].value = textArray[1][i];
             }
+        }
+        for (let i = 0 ; i <  Number(numeral); i++) {
             
-            
+            el5 = questionTextHeading.cloneNode(true);
+            el4 = answerTextHeading.cloneNode(true);
+            // el5.textContent += ` ${i+1}:`;
+            el4.textContent += ` ${i+1}:`;
             
             insertEl.appendChild(el4);
             insertEl.appendChild(el7[i]);
             insertEl.appendChild(el5);
             insertEl.appendChild(el6[i]);
-        } else {
-            el[i].value = textArray[0][i];
-            el3[i].value = textArray[1][i];
-        }
+ 
+                
+            }
             
-        }
-        
-    // if (numeral === 0) {
-    //     insertEl2.innerHTML = '';
-    // }
+   
     console.log(document.querySelector('body').offsetHeight);
     sessionStorage.setItem('textArray', JSON.stringify(textArray));
-        }
+        
 }
-
-changeNumberOfFlashcards(0);
-
 
 let eventListnerFunc = (e) => {
+    e.preventDefault();
    let el2 = document.createElement('button');
     console.log('what the!!!!!!!!!!!!!!!!!!!!!');
-    let inputString = document.getElementById('category');
-    let object = {};
-    let divEl = document.getElementById('catDiv');
-    object.subjectId = JSON.parse(sessionStorage.getItem('subjectId'));
-    object.id = JSON.parse(sessionStorage.getItem('id'));
-    object.category = inputString.value;
-    fetchIt('categories', object);
-    divEl.remove();
-    el2.removeEventListener('click', eventListnerFunc);
     let optEl = document.createElement('option');
-    optEl.value = object.category;
-    optEl.textContent = object.category;
-    console.log(optEl);
+    let inputString = document.getElementById('category');
+    let divEl = document.getElementById('catDiv');
     let selectorEl = document.getElementById('categories');
+    if (inputString.value !== 'Other') {
+    let cats = JSON.parse(sessionStorage.getItem('categoryArray'));
+    console.log(cats);
+    let arr = [];
+    try {
+    arr = cats.filter(item => item.category === inputString.value || item.category === e.target.value);
+    console.log(arr);
+    } catch {};
+    if (arr.length < 1) {
+    let object = {};
+    object.category = inputString.value;
+
+    el2.removeEventListener('click', eventListnerFunc);
+    optEl.value = object.category;
+    console.log(optEl);
+    selectorEl.value = inputString.value;
+    optEl.textContent = inputString.value;
+    
     selectorEl.appendChild(optEl);
-    selectorEl.value = object.category;
-   
+} 
+    }
+selectorEl.value = inputString.value;
+divEl.remove();
 }
+
+const gatherFlashcardCategoriesViaSubject = () => {
+    fetchIt('categories');
+    
+}
+gatherFlashcardCategoriesViaSubject();
 
 if (document.getElementById('categories').children.length > 0) {
       let inputDiv = document.getElementById('catInputDiv');
@@ -257,18 +394,15 @@ if (document.getElementById('categories').children.length > 0) {
 
 }
 
-
 const submitCategory = (e) => {
     let el = document.getElementById(category);
     let category = el.value;
     // send info
-    fetchIt('category', {category: category, id: JSON.parse(sessionStorage.getItem('id')), subjectId: JSON.parse(sessionStorage.getItem('subjectId'))});
-
-
     el.remove();
     let catSelector = document.getElementById('categories');
     let option = document.createElement('option');
     option.value = category;
     catSelector.value = category;
     catSelector.appendChild(option);
+    fetchIt('category');
 }

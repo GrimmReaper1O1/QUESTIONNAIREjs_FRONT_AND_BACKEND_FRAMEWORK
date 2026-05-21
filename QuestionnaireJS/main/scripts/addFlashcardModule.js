@@ -1,4 +1,4 @@
-const fetchIt = async (option, object = '') => {
+const fetchIt =  (option, object = '') => {
     
     
     let uri, options;

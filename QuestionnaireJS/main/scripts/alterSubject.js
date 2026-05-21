@@ -101,6 +101,10 @@ let collectInfo = async (e) => {
         }
         objectInfo.keys.push(objectArray[i].id);
     }
+    console.log(JSON.parse(sessionStorage.getItem('info')))
+    let obj = JSON.parse(sessionStorage.getItem('info'));
+    
+    objectInfo.version = obj.version; 
     console.log(objectInfo);
     sessionStorage.setItem('info', JSON.stringify(objectInfo));
     let objectInfo2 = {};
@@ -161,6 +165,15 @@ e.preventDefault();
 sessionStorage.setItem('send', 'no');
 await collectInfo('not');
 location.href = '/main/insertAudio.html?alter=1';
+
+}
+
+const runFlashCards = async e => {
+e.preventDefault();
+
+sessionStorage.setItem('send', 'no');
+await collectInfo('not');
+location.href = '/main/viewFlashCards.html';
 
 }
 

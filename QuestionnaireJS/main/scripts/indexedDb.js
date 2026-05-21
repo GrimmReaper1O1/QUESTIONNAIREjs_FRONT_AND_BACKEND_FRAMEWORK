@@ -8,7 +8,7 @@ function loadFromIndexedDB(dbName, storeName, key) {
       const db = event.target.result;
       if (!db.objectStoreNames.contains(storeName)) {
         db.createObjectStore(storeName);
-        db.createObjectStore(`sId${sessionStorage.getItem('subjectId')}Score`)
+        if (storeName !== 'flashCards') db.createObjectStore(`sId${sessionStorage.getItem('subjectId')}Score`)
       }
     };
 
